@@ -57,6 +57,35 @@ public static void listOrders () {
         }
     }
 
+public static void removeOrderByCode() {
+        int temp=-1;
+        if (User.index == 0) {
+            System.out.println("There are no orders registered at the moment. ");
+        }
+        else{
+            listOrders();
+            System.out.println("Please inform code to remove order...: ");
+            int code=Input.readInt();
+
+            for (int i=0;i<index;i++){
+                if (code==orders[i].getId() || !orders[i].getUser().equals(Session.users[Session.active_user_index])){
+                    System.out.println("This order cannot be deleted because it was requested by a different user. Please change active user in the current session to the order's requester user.");
+                }
+                else if (code==orders[i].getId() || orders[i].getUser().equals(Session.users[Session.active_user_index])){
+                    for (int j=i;j<index-1;j++){
+                        orders[j]=orders[j+1];
+                    }
+                    orders[index-1]=null;
+                    index--;
+                }
+                else {
+                    System.out.println("Order not found. Please try again. ");
+                }
+            }
+        }
+    }
+
+
 public String getFirst_name() {
 
         return first_name;
