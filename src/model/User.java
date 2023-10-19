@@ -25,6 +25,7 @@ public static boolean addOrder(Order o){
             index++;
             return true;
         }
+    }
 
 public static boolean createOrder() throws ParseException {
         if (Session.users[Session.active_user_index].index> Session.users[Session.active_user_index].orders.length)
