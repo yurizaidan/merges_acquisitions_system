@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package model;
 
 public class Order {
@@ -22,7 +23,7 @@ public class Order {
         return true;
     }
 
-public static boolean addAsset (){
+ public static boolean addAsset (){
         if (index>inventory.length) throw new ArrayIndexOutOfBoundsException("The inventory capacity has been exceeded. Please remove an existing asset already added to the inventory and try again.");
         else {
             System.out.println("Asset enrollment action");
@@ -47,6 +48,7 @@ public static boolean addAsset (){
             return true;
         }
     }
+
 
    public User getUser() {
 
@@ -121,3 +123,17 @@ public static boolean addAsset (){
 
         Order.inventory = inventory;
     }
+
+public String getOrderSummary() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nOrder Summary: ");
+        sb.append("\nOrder id: "+this.getId());
+        sb.append("\nOrder arrival date (mm/dd/yyyy): "+this.getOrder_arrival_date());
+        sb.append("\nOrder sign off (mm/dd/yyyy): "+this.getOrder_signoff_date());
+        sb.append("\nOrder requester name: "+this.getUser().getFirst_name()+" "+this.getUser().getLast_name());
+        sb.append("\nDepartment: "+this.getDepartment().name);
+        sb.append("\nTotal order price (BRL): R$ "+this.getOrder_total_price());
+
+        return sb.toString();
+    }
+}
