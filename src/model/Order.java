@@ -47,3 +47,77 @@ public static boolean addAsset (){
             return true;
         }
     }
+
+   public User getUser() {
+
+        return requester;
+    }
+
+    public void setUser(User user) {
+
+        this.requester = requester;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static Department getDepartment() {
+
+        return department;
+    }
+
+    public static void setDepartment(Department department) {
+
+        Order.department = department;
+    }
+
+    public String getOrder_arrival_date() {
+        return order_arrival_date;
+    }
+
+    public void setOrder_arrival_date(String order_arrival_date) {
+        this.order_arrival_date = order_arrival_date;
+    }
+
+    public String getOrder_signoff_date() {
+        return order_signoff_date;
+    }
+
+    public void setOrder_signoff_date(String order_signoff_date) {
+        this.order_signoff_date = order_signoff_date;
+    }
+
+    public String getOrder_status() {
+
+        return order_status;
+    }
+
+    public void setOrder_status(String order_status) {
+
+        this.order_status = order_status;
+    }
+
+    public static double getOrder_total_price() {
+
+        return order_total_price;
+    }
+
+    public static void setOrder_total_price(double order_total_price) {
+
+        Order.order_total_price = order_total_price;
+    }
+
+    public static Asset[] getInventory() {
+
+        return inventory;
+    }
+
+    public static void setInventory(Asset[] inventory) {
+
+        Order.inventory = inventory;
+    }
