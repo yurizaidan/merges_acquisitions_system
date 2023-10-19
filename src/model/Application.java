@@ -55,3 +55,39 @@ public class Application {
         }
         while (option!=0);
     }
+  
+  public static void showMenu() {
+
+        if (Session.users[Session.active_user_index] instanceof Manager) {
+        Session.showActiveUser();
+        System.out.println("\n[99] --------------------------- Change user session");
+
+        System.out.println("\n\n      Merge & Acquisition Management System         \n\n");
+
+        System.out.println("[01] ----------------------------------- Place order");
+        System.out.println("[02] --------------------------- Add assets to order");
+        System.out.println("[03] ----------------------------------- List orders");
+        System.out.println("[04] ---------------------------------- Remove order");
+        System.out.println("[05] --------------------- Search order by requester");
+        System.out.println("[06] ------------- Search order by asset description");
+        System.out.println("[07] ---------------------------------  Review order");
+        System.out.println("[08] -------------------------- List order by status");
+        System.out.println("[09] ---------------------- List last-30-days-orders");
+        System.out.println("[10] --------- List orders total price by department");
+        System.out.println("[11] -------- List details of the largest open order");
+        System.out.println("\n\n[00] ----------------------------------- Exit system");
+        }
+        else {
+            Session.showActiveUser();
+            System.out.println("\n[99] --------------------------- Change user session");
+
+            System.out.println("\n\n      Merge & Acquisition Management System         \n\n");
+
+            System.out.println("[01] ----------------------------------- Place order");
+            System.out.println("[02] --------------------------- Add assets to order");
+            System.out.println("[03] ----------------------------------- List orders");
+            System.out.println("[04] ---------------------------------- Remove order");
+            System.out.println("\n\n[00] ----------------------------------- Exit system");
+        }
+    }
+}
