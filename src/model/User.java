@@ -46,6 +46,17 @@ public static boolean createOrder() throws ParseException {
         }
     }
 
+public static void listOrders () {
+        if (index == 0) {
+            System.out.println("There are no orders registered at the moment. ");
+        } else {
+            System.out.println("\nOrders List: ");
+            for (int i = 0; i < index;i++){
+                System.out.println(orders[i].getOrderSummary());
+            }
+        }
+    }
+
 public String getFirst_name() {
 
         return first_name;
