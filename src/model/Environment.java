@@ -57,3 +57,51 @@ public class Environment {
 
         Employee e013 = new Employee("Andreas", "Spathis", 2023015, finance);
         Session.addUser(e013);
+
+	 //Orders
+        Order o001 = new Order (20231001, "08/10/2023",e001, e001.getDepartment());
+        e001.addOrder(o001);
+
+        Order o002 = new Order (20231002, "10/10/2023", e002, e002.getDepartment());
+        e002.addOrder(o002);
+
+        Order o003 = new Order (20231003, "10/15/2023", e002, e002.getDepartment());
+        e002.addOrder(o003);
+
+        Order o004 = new Order (20231004,"10/01/2023", e013, e013.getDepartment());
+        e013.addOrder(o004);
+
+        Order o005 = new Order (20231005, "10/08/2023",e008, e008.getDepartment());
+        e008.addOrder(o005);
+
+        Order o006 = new Order (20231006, "10/03/2023", e007, e007.getDepartment());
+        e007.addOrder(o006);
+
+        Order o007 = new Order (20231007, "10/02/2023", e005, e005.getDepartment());
+        e005.addOrder(o007);
+
+        Order o008 = new Order (20231008,"10/01/2023", e013, e013.getDepartment());
+        e013.addOrder(o008);
+
+        Order o009 = new Order (20231009, "10/13/2023", e010, e010.getDepartment());
+        e010.addOrder(o009);
+
+        Order o010 = new Order (20231010,"10/11/2023", e010, e010.getDepartment());
+        e010.addOrder(o010);
+
+        //Setting order total price
+        o001.setOrder_total_price(1_500);
+        o002.setOrder_total_price(2_500);
+        o003.setOrder_total_price(3_000);
+        o004.setOrder_total_price(4_000);
+        o005.setOrder_total_price(6_500);
+        o006.setOrder_total_price(1_500);
+        o007.setOrder_total_price(2_300);
+        o008.setOrder_total_price(2_450);
+        o009.setOrder_total_price(3_500);
+        o010.setOrder_total_price(2_800);
+
+
+    }
+}
+
