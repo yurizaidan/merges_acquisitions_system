@@ -104,3 +104,67 @@ public static void updateOrderStatus () {
             }
         }
     }
+
+public static void searchOrderByUser() {
+        Session.listUsers();
+
+        if (Session.index == 0) {
+            System.out.println("Please first enroll a new user in the system.");
+        } else {
+            int target = -1;
+            System.out.println("Please inform employee's id code: ");
+            int id = Input.readInt();
+
+            for (int i = 0; i < Session.users.length; i++) {
+                if (id == Session.users[i].getId()) {
+                    target = i;
+                    break;
+                }
+            }
+
+            for (int i = 0; i < User.orders.length; i++) {
+                if (User.orders[i].getUser().getId() == target) {
+                    System.out.println(User.orders[target].getOrderSummary());
+                }
+            }
+        }
+    }
+
+    public static void searchOrderByDescription(){
+        if (User.index == 0) {
+            System.out.println("\nThere are no orders registered at the moment. ");
+        }
+        else {
+            System.out.println("\nPlease inform order description: ");
+            String order_description = Input.readString();
+            int target=-1;
+            for (int i = 0; i < User.orders.length; i++){
+                for (int j = 0;j <User.orders[j].getInventory().length;j++){
+                    if (order_description.equals(User.orders[i].getInventory()[j].getDescription())){
+                        target=i;
+                    }
+                }
+            }
+        }
+    }
+
+    public static void searchOrdersByDate() throws ParseException {
+        if (User.index == 0) {
+            System.out.println("\nThere are no orders registered at the moment. ");
+        }
+        else {
+            System.out.println("\nPlease inform start date (MM/dd/yyyy): ");
+            String start_date = Input.readString();
+
+            System.out.println("\nPlease inform end date (MM/dd/yyyy): ");
+            String end_date= Input.readString();
+
+            System.out.println("\nOrders: ");
+            for (int i = 0; i < User.orders.length; i++) {
+                System.out.println("Orders found between ["+start_date+"] and ["+end_date+"] :");
+                if (compareDates(User.orders[i].getOrder_arrival_date(),start_date, end_date)==true) {
+                    System.out.println("|"+(i+1)+"| "+User.orders[i].getOrderSummary());
+                }
+            }
+        }
+    }
