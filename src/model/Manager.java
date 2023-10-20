@@ -168,3 +168,65 @@ public static void searchOrderByUser() {
             }
         }
     }
+
+public static boolean compareDates (String required_date, String start_date, String end_date) throws ParseException {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        Date sDate=sdf.parse(start_date);
+        Date eDate=sdf.parse(end_date);
+        Date date=sdf.parse(required_date);
+
+        if (date.compareTo(sDate)>=0 && date.compareTo(eDate)<=0){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public static void showOrderByStatus() {
+        double open_orders=0;
+        double approved_orders=0;
+        double reproved_orders=0;
+        for (int i=0;i<index;i++){
+            if(orders[i].getOrder_status().equals("approved")){
+                approved_orders++;
+            }
+            else if(orders[i].getOrder_status().equals("reproved")){
+                reproved_orders++;
+            }
+            else if(orders[i].getOrder_status().equals("open")){
+                open_orders++;
+            }
+        }
+        System.out.println("Total number of orders: "+index);
+        System.out.println("\nPercentage of approved orders: ");
+        System.out.println((approved_orders/index)*100+"%");
+
+        System.out.println("\nPercentage of reproved orders: ");
+        System.out.println((reproved_orders/index)*100+"%");
+
+        System.out.println("\nPercentage of open orders: ");
+        System.out.println((open_orders/index)*100+"%");
+    }
+
+    public static void showLastThirtyDaysOrders() throws ParseException {
+        Date today = new Date();
+        Calendar cal = new GregorianCalendar();
+        cal.setTime(today);
+        cal.add(Calendar.DAY_OF_MONTH, -30);
+        Date last_thirty_days = cal.getTime();
+
+        for (int i = 0; i<index; i++) {
+            String target_date = orders[i].getOrder_arrival_date();
+
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+            Date date = sdf.parse(target_date);
+
+            if (date.compareTo(last_thirty_days) >= 0) {
+                System.out.println(orders[i].getOrderSummary());
+            }
+        }
+    }
+
+}
